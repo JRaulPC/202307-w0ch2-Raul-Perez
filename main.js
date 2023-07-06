@@ -34,9 +34,29 @@ const getRandomCard = (gameDeck) => {
 
 const playGame = () => {
   const deckToUse = createCardsDeck();
-  const randomCard = getRandomCard(deckToUse);
+  const gameCard = getRandomCard(deckToUse);
 
-  return `Esta es tu carta: ${randomCard}`;
+  let shownCard = document.querySelector(".shown__card");
+
+  shownCard.textContent = gameCard;
+
+  const accesGame = () => {
+    const accesButton = document.querySelector(".start__button");
+    const mainScreen = document.querySelector(".welcome__screen");
+    const playingScreen = document.querySelector(".main__game_screen");
+
+    accesButton.addEventListener("click", () => {
+      mainScreen.classList.add("hidden");
+    });
+
+    accesButton.addEventListener("click", () => {
+      playingScreen.classList.remove("hidden");
+    });
+  };
+
+  accesGame();
+  //Comprobar luego que printee en la pantalla
+  return `Esta es tu carta: ${shownCard}`;
 };
 
 playGame();

@@ -27,7 +27,7 @@ body {
 }
 
 .game__name {
-  padding-top: 180px;
+  padding-top: 100px;
 }
 
 .start_button {
@@ -35,4 +35,42 @@ body {
 }
 
 .welcome__screen {
+}
+
+.card__display {
+  border: 3px solid black;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 700px;
+  width: 800px;
+  background-color: rgb(104, 217, 217);
+  list-style: none;
+  justify-content: space-evenly;
+}
+
+.main__game_screen {
+  display: flex;
+  flex-direction: column;
+}
+
+.shown__card {
+  border: 3px solid black;
+  border-radius: 15px;
+  height: 300px;
+  width: 300px;
+  background-color: rgb(255, 255, 255);
+}
+
+.card__to__guees {
+  border: 3px solid black;
+  border-radius: 15px;
+  height: 300px;
+  width: 300px;
+  background-color: rgb(222, 239, 110);
+}
+
+.hidden {
+  display: none;
 }
