@@ -15,10 +15,11 @@ const createCardsDeck = () => {
     "K",
     "A",
   ];
+
   let newDeck = [];
 
-  suits.forEach((suit) => {
-    ranks.forEach((rank) => {
+  ranks.forEach((rank) => {
+    suits.forEach((suit) => {
       newDeck.push(`${rank} de ${suit}`);
     });
   });
@@ -32,31 +33,48 @@ const getRandomCard = (gameDeck) => {
   return randomCard;
 };
 
-const playGame = () => {
-  const deckToUse = createCardsDeck();
-  const gameCard = getRandomCard(deckToUse);
+const accesGame = () => {
+  const accesButton = document.querySelector(".start__button");
+  const mainScreen = document.querySelector(".welcome__screen");
+  const playingScreen = document.querySelector(".main__game_screen");
 
+  accesButton.addEventListener("click", () => {
+    mainScreen.classList.add("hidden");
+    playingScreen.classList.remove("hidden");
+  });
+};
+
+const playGame = () => {
+  accesGame();
+  const deckToUse = createCardsDeck();
+  const visibleCard = getRandomCard(deckToUse);
+  const cardToGuess = getRandomCard(deckToUse);
+
+  let hiddenCard = document.querySelector(".card__to__guess");
   let shownCard = document.querySelector(".shown__card");
 
-  shownCard.textContent = gameCard;
+  shownCard.textContent = visibleCard;
 
-  const accesGame = () => {
-    const accesButton = document.querySelector(".start__button");
-    const mainScreen = document.querySelector(".welcome__screen");
-    const playingScreen = document.querySelector(".main__game_screen");
+  let greaterThanButton = document.querySelector(".greater__than");
+  let smallerThanButton = document.querySelector(".smaller__than");
 
-    accesButton.addEventListener("click", () => {
-      mainScreen.classList.add("hidden");
-    });
+  greaterThanButton.addEventListener("click", () => {
+    hiddenCard.textContent = cardToGuess;
+    if (deckToUse.indexOf(cardToGuess) > deckToUse.indexOf(visibleCard)) {
+      console.log("Has ganado");
+    } else {
+      console.log("Has perdido!");
+    }
+  });
 
-    accesButton.addEventListener("click", () => {
-      playingScreen.classList.remove("hidden");
-    });
-  };
-
-  accesGame();
-  //Comprobar luego que printee en la pantalla
-  return `Esta es tu carta: ${shownCard}`;
+  smallerThanButton.addEventListener("click", () => {
+    hiddenCard.textContent = cardToGuess;
+    if (deckToUse.indexOf(cardToGuess) < deckToUse.indexOf(visibleCard)) {
+      console.log("Has Ganado");
+    } else {
+      console.log("Has Perdido");
+    }
+  });
 };
 
 playGame();
