@@ -6,12 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <script src="main.js"></script>
-  <title>Card Game</title>
-
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+  <div class="section">
 
+    <header class="welcome__screen">
+      <h1 class="game__name">¡Adivina la carta!</h1>
+      <button class="start_button">¡Empezar a Jugar!</button>
+    </header>
+
+    <main hidden>
+      <ul class="card__display">
+        <li class="shown__card"></li>
+        <li class="card_to_guees"></li>
+      </ul>
+    </main>
+  </div>
 </body>
 
 </html>
