@@ -14,12 +14,9 @@ body {
   padding: 10px;
   min-height: 100vh;
   background: rgb(15, 68, 9);
-  background: linear-gradient(
-    90deg,
-    rgba(15, 68, 9, 1) 5%,
-    rgba(25, 112, 17, 1) 48%,
-    rgba(56, 161, 42, 1) 96%
-  );
+  background-image: radial-gradient(#44c157 2px, transparent 2px);
+  background-size: 53px 53px;
+  background-color: #51a50c;
 }
 
 .welcome__screen {
@@ -61,7 +58,13 @@ body {
   box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.5);
   border-color: rgb(0, 0, 0);
   font-size: 32px;
-  background-color: rgb(155, 255, 255);
+  background: repeating-conic-gradient(
+    from 45deg,
+    #474bff 0% 25%,
+    #42c6ef 0% 50%
+  );
+  background-size: 84px 84px;
+  background-color: #42c6ef;
   box-shadow: 3px;
   font-family: monospace;
   font-weight: bold;
