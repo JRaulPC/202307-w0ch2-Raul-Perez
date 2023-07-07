@@ -54,7 +54,7 @@ const playGame = () => {
     greaterThanButton.disabled = false;
     smallerThanButton.disabled = false;
     resultMessage.textContent = "";
-    hiddenCard.textContent = "?";
+    hiddenCard.textContent = "🃏";
     shownCard.textContent = visibleCard;
     visibleCard = getRandomCard(deckToUse);
     cardToGuess = getRandomCard(deckToUse);
