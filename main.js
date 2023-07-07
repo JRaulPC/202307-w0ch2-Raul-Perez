@@ -20,7 +20,7 @@ const createCardsDeck = () => {
 
   ranks.forEach((rank) => {
     suits.forEach((suit) => {
-      newDeck.push(`${rank} de ${suit}`);
+      newDeck.push(`${rank}${suit}`);
     });
   });
 
@@ -47,8 +47,20 @@ const accesGame = () => {
 const playGame = () => {
   accesGame();
   const deckToUse = createCardsDeck();
-  const visibleCard = getRandomCard(deckToUse);
-  const cardToGuess = getRandomCard(deckToUse);
+  let visibleCard = getRandomCard(deckToUse);
+  let cardToGuess = getRandomCard(deckToUse);
+
+  const resetGame = () => {
+    greaterThanButton.disabled = false;
+    smallerThanButton.disabled = false;
+    resultMessage.textContent = "";
+    hiddenCard.textContent = "?";
+    shownCard.textContent = visibleCard;
+    visibleCard = getRandomCard(deckToUse);
+    cardToGuess = getRandomCard(deckToUse);
+  };
+
+  const resultMessage = document.querySelector(".main__game__result");
 
   let hiddenCard = document.querySelector(".card__to__guess");
   let shownCard = document.querySelector(".shown__card");
@@ -60,20 +72,34 @@ const playGame = () => {
 
   greaterThanButton.addEventListener("click", () => {
     hiddenCard.textContent = cardToGuess;
+    greaterThanButton.disabled = true;
+    smallerThanButton.disabled = true;
+
     if (deckToUse.indexOf(cardToGuess) > deckToUse.indexOf(visibleCard)) {
-      console.log("Has ganado");
+      resultMessage.textContent = "Has Ganado";
     } else {
-      console.log("Has perdido!");
+      resultMessage.textContent = "Has Perdido";
     }
+
+    setTimeout(() => {
+      resetGame();
+    }, 1500);
   });
 
   smallerThanButton.addEventListener("click", () => {
     hiddenCard.textContent = cardToGuess;
+    greaterThanButton.disabled = true;
+    smallerThanButton.disabled = true;
+
     if (deckToUse.indexOf(cardToGuess) < deckToUse.indexOf(visibleCard)) {
-      console.log("Has Ganado");
+      resultMessage.textContent = "Has Ganado";
     } else {
-      console.log("Has Perdido");
+      resultMessage.textContent = "Has Perdido";
     }
+
+    setTimeout(() => {
+      resetGame();
+    }, 1500);
   });
 };
 
