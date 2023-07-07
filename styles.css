@@ -1,6 +1,7 @@
 html {
-  font-family: Helvetica;
+  font-family: monospace;
   font-weight: bold;
+  font-style: none;
 }
 
 body {
@@ -12,7 +13,13 @@ body {
   justify-content: center;
   padding: 10px;
   min-height: 100vh;
-  background-color: rgb(57, 218, 57);
+  background: rgb(15, 68, 9);
+  background: linear-gradient(
+    90deg,
+    rgba(15, 68, 9, 1) 5%,
+    rgba(25, 112, 17, 1) 48%,
+    rgba(56, 161, 42, 1) 96%
+  );
 }
 
 .welcome__screen {
@@ -22,6 +29,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  align-self: center;
   height: 500px;
   width: 350px;
   background-color: rgb(80, 180, 180);
@@ -29,20 +37,39 @@ body {
 
 .game__name {
   padding-top: 0px;
+  font-size: 28px;
 }
 
-.start_button,
+.start__button {
+  border-radius: 25px;
+  padding: 20px;
+  border: 5px thick double;
+  box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.5);
+  font-size: 24px;
+  font-family: monospace;
+}
+
+.start__button:hover {
+}
+
 .greater__than,
 .smaller__than {
   border-radius: 25px;
   padding: 10px;
   width: 100%;
-  border: 3px solid;
+  border: 5px thick double;
   box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.5);
   border-color: rgb(0, 0, 0);
   font-size: 32px;
   background-color: rgb(155, 255, 255);
-  box-shadow: 2px;
+  box-shadow: 3px;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.greater__than:hover,
+.smaller__than:hover {
+  letter-spacing: 1px;
 }
 
 .game__question {
@@ -56,35 +83,44 @@ body {
   border-radius: 5px;
 }
 
-.welcome__screen {
-}
-
 .card__display {
   padding-right: 50px;
   border: 3px solid black;
   border-radius: 200px;
   display: flex;
   flex-direction: row;
+  align-self: center;
   box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.5);
   align-items: center;
   font-size: 72px;
   height: 400px;
   width: 650px;
-  background-color: rgb(104, 217, 217);
+  background-image: repeating-conic-gradient(#6eff47 0% 25%, #47ffc6 0% 50%);
+  background-position: 0 0, 27px 27px;
+  background-size: 54px 54px;
+  background-color: #47ffc6;
   list-style: none;
   justify-content: space-evenly;
 }
 
 .main__game_screen {
   display: flex;
+  padding: 40px;
   flex-direction: column;
 }
 
 .main__game__result {
-  display: flex;
+  color: rgb(255, 253, 253);
+  font-size: 30px;
+  margin-bottom: 10px;
+  background-color: rgb(200, 79, 79);
+  width: 100%;
+  border: 1px trans black;
+  border-radius: 15px;
   justify-content: center;
-  color: brown;
-  font-size: 48px;
+  display: flex;
+  align-self: center;
+  box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.5);
 }
 
 .shown__card {
@@ -115,7 +151,7 @@ body {
   height: 300px;
   width: 200px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-  background-color: rgb(222, 239, 110);
+  background-color: rgb(235, 247, 151);
 }
 
 .hidden {
